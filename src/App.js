@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import date from './data';
+import Add from './compenement/add'
+import Movielist from'./compenement/movielist';
+import Search from'./compenement/search';
+import Rating from './compenement/rating';
+export default function App() {
+    const[Name,setName]=useState("");
+    const [movies, setMovies] = useState("")
+    const[Data,setData]=useState(date);
+    const[rating,setrating]=useState(null);
+    const [hover, sethover] =useState(null)
+    const Adder = (e,newMovie) => {
+        e.preventDefault();
+        return setMovies([...movies,newMovie]);
+      };
+ 
+      const [modalIsOpen, setIsOpen] = useState(false);
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+      const [name, setname] = useState('');
+      
+      const [rate, setRate] = useState(1);
+    return (
+        <div>
+        <Add AddMovie={Adder}  />
+            <Search 
+
+             namefilter={setName}/>
+
+             <Rating  ratefilter={setrating} ratecolor={sethover} haver={hover}/>
+           <Movielist dt={Data} keyname={Name} keyrate={rating}/> 
+        </div>
+    )
 }
-
-export default App;
