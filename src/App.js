@@ -6,13 +6,15 @@ import Search from'./compenement/search';
 import Rating from './compenement/rating';
 export default function App() {
     const[Name,setName]=useState("");
-    const [movies, setMovies] = useState("")
+    // const [movies, setMovies] = useState("")
     const[Data,setData]=useState(date);
     const[rating,setrating]=useState(null);
     const [hover, sethover] =useState(null)
-    const Adder = (e,newMovie) => {
+
+
+    const AddMovie = (e,newMovie) => {
         e.preventDefault();
-        return setMovies([...movies,newMovie]);
+        setData([...Data,newMovie]);
       };
  
       const [modalIsOpen, setIsOpen] = useState(false);
@@ -22,7 +24,7 @@ export default function App() {
       const [rate, setRate] = useState(1);
     return (
         <div>
-        <Add AddMovie={Adder}  />
+            <Add AddMovie={AddMovie}  />
             <Search 
 
              namefilter={setName}/>

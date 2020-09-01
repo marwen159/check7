@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import Modal from 'react-modal';
-// import './Add_movie.css'
 
  const Add =({ AddMovie })=> {
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -26,6 +25,7 @@ import Modal from 'react-modal';
      name: name,
      rate: rate,
    };
+   
    
    AddMovie(e,newMovie);
    setIsOpen(false);

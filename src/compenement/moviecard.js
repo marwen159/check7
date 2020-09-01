@@ -3,9 +3,10 @@ import'../App.css';
 import Rate from './rate';
 const moviecard = ({movie:{name,image,rate}}) => {
     return (
-        <div className="card">
+        <div style={{ border:"2px solid",
+        display:"flex", flexDirection:"column"}}>
             <h1>{name}</h1>
-            <img src={image} />
+            <img width="200px" height="300px"src={image} />
             <Rate rating={rate} />
         </div>
     )
